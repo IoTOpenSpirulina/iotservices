@@ -26,7 +26,7 @@ services:
       - mongo
 
     command: sh -c "echo 'delaying 30 seconds' && sleep 30 && npm run start"
-    # command: sh -c "npm install"
+    #command: sh -c "npm install"
 
   mongo:
     container_name: mongo
@@ -54,9 +54,9 @@ services:
       - 8083:8083
       - 8085:8081
 
-    # volumes:
-    #   - vol-emqx-data:/opt/emqx/data
-    #   - vol-emqx-log:/opt/emqx/log
+    volumes:
+      - vol-emqx-data:/opt/emqx/data
+      - vol-emqx-log:/opt/emqx/log
 
   
     links:
@@ -92,7 +92,7 @@ services:
       EMQX_AUTH__MONGO__PASSWORD: "${MONGO_PASSWORD}"
       EMQX_AUTH__MONGO__AUTH_SOURCE: admin
 
-      EMQX_AUTH__MONGO__DATABASE: "iot_bootcamp"
+      EMQX_AUTH__MONGO__DATABASE: "ioticos_god_level"
       EMQX_AUTH__MONGO__AUTH_QUERY__COLLECTION: "emqxauthrules"
 
       EMQX_AUTH__MONGO__SUPER_QUERY__COLLECTION: "emqxauthrules"
