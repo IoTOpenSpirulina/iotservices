@@ -28,12 +28,12 @@ msg="
 "
 
 
-tput setaf 128;
+tput setaf 2;
 printf "$msg"
 tput setaf 7;
 
 printf "\n\n\nNecesitaremos algo de información para instalar este sistema\n\n"
-printf "Verás entre paréntesis y en $(tput setaf 128)(este color)$(tput setaf 7) la opción por defecto que se selecciona presionando enter.\n"
+printf "Verás entre paréntesis y en $(tput setaf 2)(este color)$(tput setaf 7) la opción por defecto que se selecciona presionando enter.\n"
 printf "De lo contrario podrás ingresar manualmente la opción solicitada.\n"
 printf "No te preocupes al final del cuestionario, verás un resumen antes de confirmar.\n\n\n"
 
@@ -49,7 +49,7 @@ read -p "Presiona enter para continuar..."
 printf "\n\n⏳ Necesitamos configurar la zona horaria\n"
 while [[ -z "$TZ" ]]
 do
-  read -p "   System Time Zone $(tput setaf 128)(UTC)$(tput setaf 7): "  TZ
+  read -p "   System Time Zone $(tput setaf 2)(UTC)$(tput setaf 7): "  TZ
   TZ=${TZ:-UTC}
   echo "      Selected Time Zone ► ${TZ} ✅"
 done
@@ -72,7 +72,7 @@ random_str=$(rand-str 20)
 printf "\n\n🔐 Necesitamos crear una clave segura para Mongo Db\n"
 while [[ -z "$MONGO_PASSWORD" ]]
 do
-  read -p "   Mongo Password $(tput setaf 128)(${random_str})$(tput setaf 7): "  MONGO_PASSWORD
+  read -p "   Mongo Password $(tput setaf 2)(${random_str})$(tput setaf 7): "  MONGO_PASSWORD
   MONGO_PASSWORD=${MONGO_PASSWORD:-${random_str}}
   echo "      Selected Mongo Password ► ${MONGO_PASSWORD} ✅"
 done
@@ -81,7 +81,7 @@ done
 printf "\n\n🔌 Selecciona un puerto para Mongo Db\n"
 while [[ -z "$MONGO_PORT" ]]
 do
-  read -p "   Mongo Port $(tput setaf 128)(27017)$(tput setaf 7): "  MONGO_PORT
+  read -p "   Mongo Port $(tput setaf 2)(27017)$(tput setaf 7): "  MONGO_PORT
   MONGO_PORT=${MONGO_PORT:-27017}
   echo "      Selected Mongo Port ► ${MONGO_PORT} ✅"
 done
@@ -96,7 +96,7 @@ random_str=$(rand-str 20)
 printf "\n\n🔐 Necesitamos crear una clave para el Dashboard de EMQX \n"
 while [[ -z "$EMQX_DEFAULT_USER_PASSWORD" ]]
 do
-  read -p "   EMQX Dashboard Password $(tput setaf 128)(${random_str})$(tput setaf 7): "  EMQX_DEFAULT_USER_PASSWORD
+  read -p "   EMQX Dashboard Password $(tput setaf 2)(${random_str})$(tput setaf 7): "  EMQX_DEFAULT_USER_PASSWORD
   EMQX_DEFAULT_USER_PASSWORD=${EMQX_DEFAULT_USER_PASSWORD:-${random_str}}
   echo "      Selected EMQX Dashboard Password ► ${EMQX_DEFAULT_USER_PASSWORD} ✅"
 done
@@ -108,7 +108,7 @@ random_str=$(rand-str 20)
 printf "\n\n🔐 Necesitamos crear una clave para la API de EMQX \n"
 while [[ -z "$EMQX_DEFAULT_APPLICATION_SECRET" ]]
 do
-  read -p "   EMQX API Password $(tput setaf 128)(${random_str})$(tput setaf 7): "  EMQX_DEFAULT_APPLICATION_SECRET
+  read -p "   EMQX API Password $(tput setaf 2)(${random_str})$(tput setaf 7): "  EMQX_DEFAULT_APPLICATION_SECRET
   EMQX_DEFAULT_APPLICATION_SECRET=${EMQX_DEFAULT_APPLICATION_SECRET:-${random_str}}
   echo "      Selected EMQX API Password ► ${EMQX_DEFAULT_APPLICATION_SECRET} ✅"
 done
@@ -122,7 +122,7 @@ printf "   Estas credenciales te permitirán conectarte con privilegios totales 
 printf "   Podrás publicar o suscribirte a cualquier tópico \n"
 while [[ -z "$EMQX_NODE_SUPERUSER_USER" ]]
 do
-  read -p "   MQTT Superuser Name $(tput setaf 128)(${random_str})$(tput setaf 7): "  EMQX_NODE_SUPERUSER_USER
+  read -p "   MQTT Superuser Name $(tput setaf 2)(${random_str})$(tput setaf 7): "  EMQX_NODE_SUPERUSER_USER
   EMQX_NODE_SUPERUSER_USER=${EMQX_NODE_SUPERUSER_USER:-${random_str}}
   echo "      Selected MQTT Superuser Name ► ${EMQX_NODE_SUPERUSER_USER} ✅"
 done
@@ -134,7 +134,7 @@ random_str=$(rand-str 20)
 printf "\n\n🔐 Necesitamos crear la clave del superusuario MQTT \n"
 while [[ -z "$EMQX_NODE_SUPERUSER_PASSWORD" ]]
 do
-  read -p "   MQTT Superuser Name $(tput setaf 128)(${random_str})$(tput setaf 7): "  EMQX_NODE_SUPERUSER_PASSWORD
+  read -p "   MQTT Superuser Name $(tput setaf 2)(${random_str})$(tput setaf 7): "  EMQX_NODE_SUPERUSER_PASSWORD
   EMQX_NODE_SUPERUSER_PASSWORD=${EMQX_NODE_SUPERUSER_PASSWORD:-${random_str}}
   echo "      Selected MQTT Superuser Password ► ${EMQX_NODE_SUPERUSER_PASSWORD} ✅"
 done
@@ -146,7 +146,7 @@ printf "\n\n🔐 Necesitamos crear el token que enviará los requests desde EMQX
 
 while [[ -z "$EMQX_API_TOKEN" ]]
 do
-  read -p "   EMQX API WEBHOOK TOKEN $(tput setaf 128) (${random_str})$(tput setaf 7): "  EMQX_API_TOKEN
+  read -p "   EMQX API WEBHOOK TOKEN $(tput setaf 2) (${random_str})$(tput setaf 7): "  EMQX_API_TOKEN
   EMQX_API_TOKEN=${EMQX_API_TOKEN:-${random_str}}
   echo "      Selected EMQX API WEB TOKEN  ► ${EMQX_API_TOKEN} ✅"
 done
@@ -236,22 +236,22 @@ msg="
 | _| \`._____||_______||_______/     \______/  |__|  |__| |_______||__| \__|                                                                                                                            
 "
 
-tput setaf 128;
+tput setaf 2;
 printf "$msg"
 tput setaf 7;
 
 printf "\n\n\n"
-printf "   🟢 TIMEZONE: $(tput setaf 128)${TZ}$(tput setaf 7)\n"
-printf "   🟢 MONGO USER: $(tput setaf 128)${MONGO_USERNAME}$(tput setaf 7)\n"
-printf "   🟢 MONGO PASS: $(tput setaf 128)${MONGO_PASSWORD}$(tput setaf 7)\n"
-printf "   🟢 MONGO PORT: $(tput setaf 128)${MONGO_PORT}$(tput setaf 7)\n"
-printf "   🟢 EMQX API PASSWORD: $(tput setaf 128)${EMQX_DEFAULT_APPLICATION_SECRET}$(tput setaf 7)\n"
-printf "   🟢 MQTT SUPERUSER: $(tput setaf 128)${EMQX_NODE_SUPERUSER_USER}$(tput setaf 7)\n"
-printf "   🟢 MQTT SUPER PASS: $(tput setaf 128)${EMQX_NODE_SUPERUSER_PASSWORD}$(tput setaf 7)\n"
-printf "   🟢 WEBHOOK WEB TOKEN: $(tput setaf 128)${EMQX_API_TOKEN}$(tput setaf 7)\n"
-printf "   🟢 DOMAIN: $(tput setaf 128)${DOMAIN}$(tput setaf 7)\n"
-printf "   🟢 IP: $(tput setaf 128)${IP}$(tput setaf 7)\n"
-printf "   🟢 SSL?: $(tput setaf 128)${opt}$(tput setaf 7)\n"
+printf "   🟢 TIMEZONE: $(tput setaf 2)${TZ}$(tput setaf 7)\n"
+printf "   🟢 MONGO USER: $(tput setaf 2)${MONGO_USERNAME}$(tput setaf 7)\n"
+printf "   🟢 MONGO PASS: $(tput setaf 2)${MONGO_PASSWORD}$(tput setaf 7)\n"
+printf "   🟢 MONGO PORT: $(tput setaf 2)${MONGO_PORT}$(tput setaf 7)\n"
+printf "   🟢 EMQX API PASSWORD: $(tput setaf 2)${EMQX_DEFAULT_APPLICATION_SECRET}$(tput setaf 7)\n"
+printf "   🟢 MQTT SUPERUSER: $(tput setaf 2)${EMQX_NODE_SUPERUSER_USER}$(tput setaf 7)\n"
+printf "   🟢 MQTT SUPER PASS: $(tput setaf 2)${EMQX_NODE_SUPERUSER_PASSWORD}$(tput setaf 7)\n"
+printf "   🟢 WEBHOOK WEB TOKEN: $(tput setaf 2)${EMQX_API_TOKEN}$(tput setaf 7)\n"
+printf "   🟢 DOMAIN: $(tput setaf 2)${DOMAIN}$(tput setaf 7)\n"
+printf "   🟢 IP: $(tput setaf 2)${IP}$(tput setaf 7)\n"
+printf "   🟢 SSL?: $(tput setaf 2)${opt}$(tput setaf 7)\n"
 
 printf "\n\n\n\n";
 read -p "Presiona Enter para comenzar la instalación..."
@@ -259,7 +259,7 @@ sleep 2
 
 
 sudo apt-get update
-wget https://get.docker.com/
+sudo wget https://get.docker.com/
 sudo mv index.html install_docker.sh
 sudo chmod 777 install_docker.sh
 sudo ./install_docker.sh
@@ -314,7 +314,7 @@ sudo sh -c "echo 'MONGO_USERNAME=${MONGO_USERNAME}' >> $filename"
 sudo sh -c "echo 'MONGO_PASSWORD=${MONGO_PASSWORD}' >> $filename"
 sudo sh -c "echo 'MONGO_HOST=mongo' >> $filename"
 sudo sh -c "echo 'MONGO_PORT=${MONGO_PORT}' >> $filename"
-sudo sh -c "echo 'MONGO_DATABASE=ioticos_god_level' >> $filename"
+sudo sh -c "echo 'MONGO_DATABASE=iot_spirulina' >> $filename"
 sudo sh -c "echo '' >> $filename"
 
 
